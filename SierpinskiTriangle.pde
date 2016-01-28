@@ -1,7 +1,12 @@
+/*
+	TRY: Chaos Game	https://en.wikipedia.org/wiki/Chaos_game
+*/
+
 public int numTriangles = 20;
 public void setup()
 {
 	size(700, 700);
+	noLoop(); //stops the seizures
 }
 public void draw()
 {
@@ -10,9 +15,10 @@ public void draw()
 }
 public void mouseMoved()//optional
 {
-	// use currect mouseX and mouseY!
+	/*
+	int currentX = mouseX, currentY = mouseY;	// use currect mouseX and mouseY!
 	if(numTriangles > 0){
-		if(mouseX > width/2){
+		if(mouseX > currentX){
 			numTriangles++;
 			System.out.println(numTriangles);
 		}
@@ -24,6 +30,7 @@ public void mouseMoved()//optional
 	else {
 		numTriangles = 20;
 	}
+	*/
 }
 public void sierpinski(int x, int y, int len) 
 {
@@ -34,6 +41,15 @@ public void sierpinski(int x, int y, int len)
 		sierpinski(x+(len/4), y-(len/2), len/2); // triangle on top of two ^
 	}
 	else {
+		noFill();
+		stroke((float)Math.random()*255, (float)Math.random()*255, (float)Math.random()*255);
 		triangle(x, y, x+(len/2), y-len, x+len, y); // triangle with height and width of len
+		
+		/* FOR CHAOS GAME
+		stroke(255);
+	    triangle(x, y, x+(len/2), y-len, x+len, y); // triangle with height and width of len
+	    stroke(255, 0, 0);
+	    point(x, y);
+		*/
 	}
 }
