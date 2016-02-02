@@ -32,24 +32,36 @@ public void mouseMoved()//optional
 	}
 	*/
 }
+
+public void mouseClicked()
+{
+	numTriangles+=2;
+}
+
 public void sierpinski(int x, int y, int len) 
 {
 	if(len > numTriangles) { // len > num : num-- -> more triangles
 	// BASE CLASS : Calls Sierpinski with w & h of len x3 in different places
+	/*	triangle */
 		sierpinski(x, y, len/2); // triangle with height and width of len/2
 		sierpinski(x+(len/2), y, len/2); // triangle next to ^
 		sierpinski(x+(len/4), y-(len/2), len/2); // triangle on top of two ^
+	/**/
+
+	/* FOR CHAOS GAME */
+
+	/**/
 	}
 	else {
-		noFill();
-		stroke((float)Math.random()*255, (float)Math.random()*255, (float)Math.random()*255);
-		triangle(x, y, x+(len/2), y-len, x+len, y); // triangle with height and width of len
+		// noFill();
+		// stroke((float)Math.random()*255, (float)Math.random()*255, (float)Math.random()*255);
+		// triangle(x, y, x+(len/2), y-len, x+len, y); // triangle with height and width of len
 		
-		/* FOR CHAOS GAME
-		stroke(255);
-	    triangle(x, y, x+(len/2), y-len, x+len, y); // triangle with height and width of len
+		/* FOR CHAOS GAME */
+		// stroke(255);
+	    // triangle(x, y, x+(len/2), y-len, x+len, y); // triangle with height and width of len
 	    stroke(255, 0, 0);
-	    point(x, y);
-		*/
+	    point(x+len/2, y-len/2);
+		/**/
 	}
 }
